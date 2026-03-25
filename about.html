@@ -2,86 +2,40 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home | Md Shamim</title>
+<title>About</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 body{
-  margin:0;
   font-family:Poppins;
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  background:#111;
   color:white;
   text-align:center;
 }
 
-/* Navbar */
-nav{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 30px;
-  background:rgba(0,0,0,0.5);
-}
-
-.dropdown-content{
-  display:none;
-  position:absolute;
-  right:20px;
-  background:black;
-  border-radius:10px;
-}
-
-.dropdown-content a{
-  display:block;
-  padding:10px;
-  color:white;
-  text-decoration:none;
-}
-
-.dot-menu{
-  font-size:25px;
-  cursor:pointer;
-}
-
-.hero{
+.box{
   margin-top:100px;
-}
-
-.profile{
-  width:150px;
-  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:10px;
+  display:inline-block;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <h2>Md Shamim</h2>
+<h1>About Me</h1>
 
-  <div>
-    <span class="dot-menu" onclick="toggle()">⋮</span>
-
-    <div class="dropdown-content" id="menu">
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="about.html"><i class="fas fa-user"></i> About</a>
-      <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
-    </div>
-  </div>
-</nav>
-
-<div class="hero">
-  <img src="cover.jpg" class="profile">
-  <h1>Welcome to My Website</h1>
+<div class="box">
+  <p>👋 Md Shamim</p>
+  <p>💻 Web Developer</p>
+  <p>🎨 UI Designer</p>
 </div>
 
-<script>
-function toggle(){
-  let m = document.getElementById("menu");
-  m.style.display = m.style.display=="block"?"none":"block";
-}
-</script>
+<br><br>
+<a href="index.html">⬅ Back Home</a>
 
 </body>
 </html>
