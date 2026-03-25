@@ -5,173 +5,227 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MS | AI Social Profile</title>
 
+<!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:white;
 }
 
 /* Navbar */
 nav{
-position:fixed;
-top:0;
-width:100%;
-padding:15px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
-z-index:1000;
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+  z-index:1000;
 }
 
 /* Logo with image */
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:26px;
-font-weight:700;
-color:white;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:26px;
+  font-weight:700;
+  color:white;
 }
 .logo img{
-width:40px;
-height:40px;
-border-radius:50%;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+
+/* Menu links + 3-dot dropdown */
+.menu{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+/* 3-dot menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dot-menu {
+  font-size:28px;
+  cursor:pointer;
+  color:white;
+  padding:5px;
+  user-select: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: rgba(0,0,0,0.9);
+  min-width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #000;
+  z-index:1001;
+  padding:10px 0;
+}
+
+.dropdown-content a {
+  display: flex;
+  align-items: center;
+  padding:10px 15px;
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  transition:0.2s;
+}
+
+.dropdown-content a:hover {
+  background: linear-gradient(90deg,#00f2ff,#ff00ea);
+}
+
+.menu-icon {
+  width:20px;
+  height:20px;
+  margin-right:10px;
 }
 
 /* Hero */
 .hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding-top:60px;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding-top:60px;
 }
 
 .profile{
-width:150px;
-height:150px;
-border-radius:50%;
-border:4px solid #00eaff;
-box-shadow:0 0 30px #00eaff;
-margin-bottom:20px;
-animation:float 3s ease-in-out infinite;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  border:4px solid #00eaff;
+  box-shadow:0 0 30px #00eaff;
+  margin-bottom:20px;
+  animation:float 3s ease-in-out infinite;
 }
 
 @keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-20px);}
 }
 
 .hero h1{
-font-size:40px;
-background:linear-gradient(45deg,#00f2ff,#ff00ea,#fffc00);
-background-clip:text;
--webkit-background-clip:text;
-color:transparent;
-animation:textGradient 5s ease infinite;
-background-size:400% 400%;
+  font-size:40px;
+  background:linear-gradient(45deg,#00f2ff,#ff00ea,#fffc00);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:textGradient 5s ease infinite;
+  background-size:400% 400%;
 }
 
 @keyframes textGradient{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 .hero p{
-opacity:0.8;
-margin:10px 0 20px 0;
+  opacity:0.8;
+  margin:10px 0 20px 0;
 }
 
 /* Buttons */
 .btn{
-padding:12px 30px;
-border:none;
-border-radius:30px;
-background:linear-gradient(45deg,#00f2ff,#ff00ea);
-color:white;
-cursor:pointer;
-margin:5px;
-transition:0.3s;
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#00f2ff,#ff00ea);
+  color:white;
+  cursor:pointer;
+  margin:5px;
+  transition:0.3s;
 }
 .btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #ff00ea;
+  transform:scale(1.05);
+  box-shadow:0 0 20px #ff00ea;
 }
 
 /* Social Links */
 .social{
-margin-top:20px;
+  margin-top:20px;
 }
 .social a{
-margin:0 10px;
-font-size:24px;
-color:white;
-transition:0.3s;
+  margin:0 10px;
+  font-size:24px;
+  color:white;
+  transition:0.3s;
 }
 .social a:hover{
-color:#00eaff;
-transform:scale(1.2);
+  color:#00eaff;
+  transform:scale(1.2);
 }
 
 /* Floating AI button */
 .chat-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-width:60px;
-height:60px;
-background:linear-gradient(45deg,#00f2ff,#ff00ea);
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-font-size:1.5em;
-cursor:pointer;
-box-shadow:0 0 20px #ff00ea;
-animation:bounce 2s infinite;
-z-index:999;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:60px;
+  height:60px;
+  background:linear-gradient(45deg,#00f2ff,#ff00ea);
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:1.5em;
+  cursor:pointer;
+  box-shadow:0 0 20px #ff00ea;
+  animation:bounce 2s infinite;
+  z-index:999;
 }
 
 @keyframes bounce{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
 }
 
 /* Sections */
 section{
-padding:100px 20px;
-text-align:center;
+  padding:100px 20px;
+  text-align:center;
 }
 section h2{
-font-size:2.5em;
-margin-bottom:40px;
-background:linear-gradient(90deg,#00f2ff,#ff00ea,#fffc00);
--webkit-background-clip:text;
-color:transparent;
+  font-size:2.5em;
+  margin-bottom:40px;
+  background:linear-gradient(90deg,#00f2ff,#ff00ea,#fffc00);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 /* Footer */
 footer{
-padding:40px 20px;
-text-align:center;
-color:#ccc;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(10px);
+  padding:40px 20px;
+  text-align:center;
+  color:#ccc;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(10px);
 }
 </style>
 </head>
@@ -179,55 +233,79 @@ backdrop-filter:blur(10px);
 
 <!-- Navbar -->
 <nav>
-<div class="logo">
-<img src="logo.jpg" alt="Logo"> <!-- Add your logo image here -->
-MS
-</div>
-<div class="menu">
-<a href="#about" style="margin-right:15px;color:white;">About</a>
-<a href="#social" style="color:white;">Connect</a>
-</div>
+  <div class="logo">
+    <img src="images/logo.png" alt="Logo"> MS
+  </div>
+
+  <div class="menu">
+    <a href="#about" style="color:white;">About</a>
+    <a href="#social" style="color:white;">Connect</a>
+
+    <!-- 3-dot menu -->
+    <div class="dropdown">
+      <div class="dot-menu" onclick="toggleDropdown()">&#8942;</div>
+      <div class="dropdown-content" id="dropdownContent">
+        <a href="#home"><i class="fas fa-home menu-icon"></i> Home</a>
+        <a href="#about"><i class="fas fa-user menu-icon"></i> About</a>
+        <a href="#social"><i class="fas fa-users menu-icon"></i> Connect</a>
+      </div>
+    </div>
+  </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero">
-<img src="cover.jpg" alt="MS Profile" class="profile">
-<h1>Welcome to My AI Social Profile</h1>
-<p>Explore AI-powered features, animated UI, and interactive profile experience.</p>
-<div>
-<button class="btn" onclick="scrollToSection('about')">About Me</button>
-<button class="btn" onclick="scrollToSection('social')">Connect</button>
-</div>
-<div class="social" id="social">
-<a href="https://wa.me/917557096331" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-</div>
+  <img src="images/shamim.jpg" alt="MS Profile" class="profile">
+  <h1>Welcome to My AI Social Profile</h1>
+  <p>Explore AI-powered features, animated UI, and interactive profile experience.</p>
+  <div>
+    <button class="btn" onclick="scrollToSection('about')">About Me</button>
+    <button class="btn" onclick="scrollToSection('social')">Connect</button>
+  </div>
+  <div class="social" id="social">
+    <a href="https://wa.me/917557096331" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
 </section>
 
 <!-- About Me Section -->
 <section id="about">
-<h2>About Me</h2>
-<p>Hello 👋, I am MS, passionate about AI and modern web design. I create interactive AI profiles, advanced animations, and social experiences that engage users.</p>
+  <h2>About Me</h2>
+  <p>Hello 👋, I am MS, passionate about AI and modern web design. I create interactive AI profiles, advanced animations, and social experiences that engage users.</p>
 </section>
 
 <!-- Floating AI Chat Button -->
 <div class="chat-btn" title="Chat with AI" onclick="openAIChat()">
-<i class="fas fa-robot"></i>
+  <i class="fas fa-robot"></i>
 </div>
 
 <!-- Footer -->
 <footer>
-&copy; 2026 MS. All Rights Reserved.
+  &copy; 2026 MS. All Rights Reserved.
 </footer>
 
 <script>
 function scrollToSection(id){
-document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
 function openAIChat(){
-alert("Hello! This is your AI chat assistant placeholder. Integrate ChatGPT API here.");
+  alert("Hello! This is your AI chat assistant placeholder. Integrate ChatGPT API here.");
+}
+
+// Dropdown toggle
+function toggleDropdown(){
+  const dropdown = document.getElementById('dropdownContent');
+  dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+}
+
+// Close dropdown if clicked outside
+window.onclick = function(e) {
+  if (!e.target.matches('.dot-menu')) {
+    const dropdown = document.getElementById('dropdownContent');
+    if (dropdown.style.display === 'block') dropdown.style.display = 'none';
+  }
 }
 </script>
 
