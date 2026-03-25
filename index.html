@@ -19,7 +19,6 @@ font-family:'Poppins',sans-serif;
 body{
 background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
-overflow-x:hidden;
 }
 
 /* Navbar */
@@ -34,10 +33,9 @@ justify-content:space-between;
 align-items:center;
 background:rgba(0,0,0,0.4);
 backdrop-filter:blur(10px);
-z-index:999;
 }
 
-/* Stylish animated logo */
+/* Logo */
 
 .logo{
 font-size:26px;
@@ -47,17 +45,11 @@ background-size:250%;
 -webkit-background-clip:text;
 color:transparent;
 animation:logoMove 6s linear infinite;
-letter-spacing:1px;
 }
 
 @keyframes logoMove{
 0%{background-position:0%;}
 100%{background-position:250%;}
-}
-
-.menu i{
-font-size:22px;
-cursor:pointer;
 }
 
 /* Hero */
@@ -69,7 +61,6 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
 }
 
 .profile{
@@ -83,12 +74,11 @@ margin-bottom:20px;
 
 .hero h1{
 font-size:40px;
-margin-bottom:10px;
 }
 
 .hero p{
 opacity:0.8;
-margin-bottom:20px;
+margin:10px 0 20px 0;
 }
 
 .btn{
@@ -98,91 +88,72 @@ border-radius:30px;
 background:linear-gradient(45deg,#00f2ff,#ff00ea);
 color:white;
 cursor:pointer;
-font-size:16px;
-transition:0.3s;
 }
 
-.btn:hover{
-transform:scale(1.05);
-}
-
-/* Social icons */
-
-.social{
-margin-top:20px;
-}
+/* Social */
 
 .social a{
 margin:0 10px;
 font-size:24px;
 color:white;
-transition:0.3s;
 }
 
 .social a:hover{
-color:#00f2ff;
-transform:scale(1.2);
+color:#00eaff;
 }
 
-/* About */
+/* Floating AI button */
 
-.about{
-padding:80px 20px;
-text-align:center;
-}
-
-.about h2{
-font-size:32px;
-margin-bottom:20px;
-}
-
-/* Chat section */
-
-.chat{
-padding:80px 20px;
-text-align:center;
-}
-
-.chatbox{
-max-width:600px;
-margin:auto;
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-}
-
-.chatbox input{
-width:75%;
-padding:10px;
-border:none;
-border-radius:10px;
-margin-top:10px;
-}
-
-.chatbox button{
-padding:10px 20px;
-border:none;
-border-radius:10px;
+.chat-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
 background:#00eaff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
 color:black;
 cursor:pointer;
-margin-left:5px;
+box-shadow:0 0 20px #00eaff;
+}
+
+/* Chat box */
+
+.chatbox{
+position:fixed;
+bottom:90px;
+right:20px;
+width:300px;
+background:#111;
+border-radius:10px;
+padding:15px;
+display:none;
 }
 
 .messages{
 height:200px;
 overflow:auto;
+font-size:14px;
 margin-bottom:10px;
-text-align:left;
 }
 
-/* Footer */
+.chatbox input{
+width:70%;
+padding:8px;
+border:none;
+border-radius:5px;
+}
 
-footer{
-text-align:center;
-padding:20px;
-opacity:0.6;
+.chatbox button{
+padding:8px 10px;
+border:none;
+background:#00eaff;
+cursor:pointer;
+border-radius:5px;
 }
 
 </style>
@@ -192,9 +163,7 @@ opacity:0.6;
 
 <nav>
 <div class="logo">Md Shamim</div>
-<div class="menu">
 <i class="fa fa-ellipsis-v"></i>
-</div>
 </nav>
 
 <section class="hero">
@@ -208,54 +177,34 @@ opacity:0.6;
 <button class="btn">Follow Me</button>
 
 <div class="social">
-
 <a href="https://wa.me/917557096331"><i class="fab fa-whatsapp"></i></a>
-
 <a href="#"><i class="fab fa-instagram"></i></a>
-
 <a href="#"><i class="fab fa-facebook"></i></a>
-
 </div>
 
 </section>
 
+<!-- AI Chat -->
 
-<section class="about">
-
-<h2>About Me</h2>
-
-<p>
-Hello 👋 Welcome to my personal AI powered website.  
-I create modern digital projects, IPTV systems, AI tools and advanced web platforms.
-</p>
-
-</section>
-
-
-<section class="chat">
-
-<h2>AI Assistant</h2>
-
-<div class="chatbox">
+<div class="chatbox" id="chatbox">
 
 <div class="messages" id="messages"></div>
 
-<input id="userInput" placeholder="Ask something...">
-
+<input id="userInput" placeholder="Ask AI...">
 <button onclick="sendMessage()">Send</button>
 
 </div>
 
-</section>
-
-
-<footer>
-
-© 2026 Md Shamim | Powered by AI
-
-</footer>
+<div class="chat-btn" onclick="toggleChat()">
+<i class="fa fa-robot"></i>
+</div>
 
 <script>
+
+function toggleChat(){
+let chat=document.getElementById("chatbox");
+chat.style.display = chat.style.display === "block" ? "none" : "block";
+}
 
 function sendMessage(){
 
@@ -269,7 +218,7 @@ let box=document.getElementById("messages");
 box.innerHTML+=`<p><b>You:</b> ${msg}</p>`;
 
 setTimeout(()=>{
-box.innerHTML+=`<p><b>AI:</b> Hello 👋 I am your personal assistant.</p>`;
+box.innerHTML+=`<p><b>AI:</b> Hello 👋 How can I help you?</p>`;
 box.scrollTop=box.scrollHeight;
 },500);
 
