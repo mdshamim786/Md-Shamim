@@ -3,278 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MS | AI Social Profile</title>
+<title>Home | Md Shamim</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
 body{
+  margin:0;
+  font-family:Poppins;
   background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:white;
+  text-align:center;
 }
 
 /* Navbar */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  padding:15px 30px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+  padding:15px 30px;
+  background:rgba(0,0,0,0.5);
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:26px;
-  font-weight:700;
-}
-.logo img{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-}
-
-/* Menu */
-.menu{
-  display:flex;
-  align-items:center;
-}
-
-/* Dropdown */
-.dropdown {
-  position: relative;
-}
-
-.dot-menu {
-  font-size:28px;
-  cursor:pointer;
-  color:white;
-}
-
-.dropdown-content {
+.dropdown-content{
   display:none;
   position:absolute;
-  right:0;
-  background:rgba(0,0,0,0.9);
+  right:20px;
+  background:black;
   border-radius:10px;
-  overflow:hidden;
-  min-width:160px;
 }
 
-.dropdown-content a {
-  display:flex;
-  align-items:center;
-  padding:12px 15px;
+.dropdown-content a{
+  display:block;
+  padding:10px;
   color:white;
   text-decoration:none;
-  transition:0.3s;
 }
 
-.dropdown-content a:hover {
-  background:linear-gradient(90deg,#00f2ff,#ff00ea);
+.dot-menu{
+  font-size:25px;
+  cursor:pointer;
 }
 
-.menu-icon{
-  margin-right:10px;
-}
-
-/* Hero */
 .hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+  margin-top:100px;
 }
 
 .profile{
   width:150px;
-  height:150px;
   border-radius:50%;
-  border:4px solid #00eaff;
-  box-shadow:0 0 30px #00eaff;
-  animation:float 3s infinite;
-}
-
-@keyframes float{
-  50%{transform:translateY(-15px);}
-}
-
-.hero h1{
-  font-size:40px;
-  background:linear-gradient(45deg,#00f2ff,#ff00ea,#fffc00);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p{
-  margin-top:10px;
-  opacity:0.8;
-}
-
-/* Social */
-.social{
-  margin-top:20px;
-}
-.social a{
-  margin:0 10px;
-  font-size:24px;
-  color:white;
-  transition:0.3s;
-}
-.social a:hover{
-  color:#00eaff;
-}
-
-/* Sections */
-section{
-  padding:100px 20px;
-  text-align:center;
-}
-
-section h2{
-  font-size:2em;
-  margin-bottom:20px;
-}
-
-/* Box (for About & Contact) */
-.box{
-  background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
-  backdrop-filter:blur(10px);
-  display:inline-block;
-  transition:0.3s;
-}
-
-.box:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 20px #00eaff;
-}
-
-/* Chat Button */
-.chat-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;
-  height:60px;
-  background:linear-gradient(45deg,#00f2ff,#ff00ea);
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  cursor:pointer;
-  box-shadow:0 0 20px #ff00ea;
-}
-
-/* Footer */
-footer{
-  text-align:center;
-  padding:20px;
-  background:rgba(0,0,0,0.5);
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
 <nav>
-  <div class="logo">
-    <img src="logo.jpg"> Md Shamim
-  </div>
+  <h2>Md Shamim</h2>
 
-  <div class="menu">
-    <div class="dropdown">
-      <div class="dot-menu" onclick="toggleDropdown()">&#8942;</div>
-      <div class="dropdown-content" id="dropdownContent">
-        <a href="#home"><i class="fas fa-home menu-icon"></i> Home</a>
-        <a href="#about"><i class="fas fa-user menu-icon"></i> About</a>
-        <a href="#contact"><i class="fas fa-phone menu-icon"></i> Contact</a>
-      </div>
+  <div>
+    <span class="dot-menu" onclick="toggle()">⋮</span>
+
+    <div class="dropdown-content" id="menu">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-user"></i> About</a>
+      <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
     </div>
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero" id="home">
+<div class="hero">
   <img src="cover.jpg" class="profile">
-  <h1>Welcome to My AI Profile</h1>
-  <p>Modern UI | AI Tools | Creative Design</p>
-
-  <div class="social">
-    <a href="https://wa.me/917557096331"><i class="fab fa-whatsapp"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-  </div>
-</section>
-
-<!-- About -->
-<section id="about">
-  <h2>About Me</h2>
-
-  <div class="box">
-    <p>👋 Hello, I am <b>Md Shamim</b></p>
-    <p>💻 Web Developer & AI Enthusiast</p>
-    <p>🎨 I design modern UI & animated websites</p>
-    <p>🚀 Passionate about technology & innovation</p>
-  </div>
-
-</section>
-
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact Me</h2>
-
-  <div class="box">
-    <p>
-      <i class="fas fa-phone"></i> 
-      <a href="tel:+917557096331" style="color:white; text-decoration:none;">
-        +91 7557096331
-      </a>
-    </p>
-    <p><i class="fas fa-envelope"></i> yourmail@gmail.com</p>
-    <p><i class="fas fa-map-marker-alt"></i> India</p>
-  </div>
-</section>
-
-<!-- Chat Button -->
-<div class="chat-btn" onclick="openAIChat()">
-  <i class="fas fa-robot"></i>
+  <h1>Welcome to My Website</h1>
 </div>
 
-<!-- Footer -->
-<footer>
-  © 2026 Md Shamim
-</footer>
-
 <script>
-function toggleDropdown(){
-  let d = document.getElementById("dropdownContent");
-  d.style.display = d.style.display === "block" ? "none" : "block";
-}
-
-function openAIChat(){
-  alert("AI Chat Coming Soon 🤖");
+function toggle(){
+  let m = document.getElementById("menu");
+  m.style.display = m.style.display=="block"?"none":"block";
 }
 </script>
 
