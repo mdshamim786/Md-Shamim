@@ -155,13 +155,19 @@ section h2{
   margin-bottom:20px;
 }
 
-/* Contact Card */
-.contact-box{
+/* Box (for About & Contact) */
+.box{
   background:rgba(255,255,255,0.05);
   padding:20px;
   border-radius:15px;
   backdrop-filter:blur(10px);
   display:inline-block;
+  transition:0.3s;
+}
+
+.box:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00eaff;
 }
 
 /* Chat Button */
@@ -225,14 +231,21 @@ footer{
 <!-- About -->
 <section id="about">
   <h2>About Me</h2>
-  <p>Hello 👋, I am Md Shamim. I create modern websites, AI-based tools, and animated UI designs.</p>
+
+  <div class="box">
+    <p>👋 Hello, I am <b>Md Shamim</b></p>
+    <p>💻 Web Developer & AI Enthusiast</p>
+    <p>🎨 I design modern UI & animated websites</p>
+    <p>🚀 Passionate about technology & innovation</p>
+  </div>
+
 </section>
 
 <!-- Contact -->
 <section id="contact">
   <h2>Contact Me</h2>
 
-  <div class="contact-box">
+  <div class="box">
     <p>
       <i class="fas fa-phone"></i> 
       <a href="tel:+917557096331" style="color:white; text-decoration:none;">
