@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -22,7 +21,6 @@ color:white;
 }
 
 /* Navbar */
-
 nav{
 position:fixed;
 top:0;
@@ -33,27 +31,25 @@ justify-content:space-between;
 align-items:center;
 background:rgba(0,0,0,0.4);
 backdrop-filter:blur(10px);
+z-index:1000;
 }
 
-/* Logo */
-
+/* Logo with image */
 .logo{
+display:flex;
+align-items:center;
+gap:10px;
 font-size:26px;
 font-weight:700;
-background:linear-gradient(120deg,#00eaff,#4facfe,#8e2de2,#00eaff);
-background-size:250%;
--webkit-background-clip:text;
-color:transparent;
-animation:logoMove 6s linear infinite;
+color:white;
 }
-
-@keyframes logoMove{
-0%{background-position:0%;}
-100%{background-position:250%;}
+.logo img{
+width:40px;
+height:40px;
+border-radius:50%;
 }
 
 /* Hero */
-
 .hero{
 height:100vh;
 display:flex;
@@ -61,6 +57,7 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding-top:60px;
 }
 
 .profile{
@@ -70,10 +67,28 @@ border-radius:50%;
 border:4px solid #00eaff;
 box-shadow:0 0 30px #00eaff;
 margin-bottom:20px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
 }
 
 .hero h1{
 font-size:40px;
+background:linear-gradient(45deg,#00f2ff,#ff00ea,#fffc00);
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+animation:textGradient 5s ease infinite;
+background-size:400% 400%;
+}
+
+@keyframes textGradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .hero p{
@@ -81,6 +96,7 @@ opacity:0.8;
 margin:10px 0 20px 0;
 }
 
+/* Buttons */
 .btn{
 padding:12px 30px;
 border:none;
@@ -88,144 +104,131 @@ border-radius:30px;
 background:linear-gradient(45deg,#00f2ff,#ff00ea);
 color:white;
 cursor:pointer;
+margin:5px;
+transition:0.3s;
+}
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #ff00ea;
 }
 
-/* Social */
-
+/* Social Links */
+.social{
+margin-top:20px;
+}
 .social a{
 margin:0 10px;
 font-size:24px;
 color:white;
+transition:0.3s;
 }
-
 .social a:hover{
 color:#00eaff;
+transform:scale(1.2);
 }
 
 /* Floating AI button */
-
 .chat-btn{
 position:fixed;
 bottom:20px;
 right:20px;
 width:60px;
 height:60px;
-background:#00eaff;
+background:linear-gradient(45deg,#00f2ff,#ff00ea);
 border-radius:50%;
 display:flex;
-align-items:center;
 justify-content:center;
-font-size:26px;
-color:black;
+align-items:center;
+color:white;
+font-size:1.5em;
 cursor:pointer;
-box-shadow:0 0 20px #00eaff;
+box-shadow:0 0 20px #ff00ea;
+animation:bounce 2s infinite;
+z-index:999;
 }
 
-/* Chat box */
-
-.chatbox{
-position:fixed;
-bottom:90px;
-right:20px;
-width:300px;
-background:#111;
-border-radius:10px;
-padding:15px;
-display:none;
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
 }
 
-.messages{
-height:200px;
-overflow:auto;
-font-size:14px;
-margin-bottom:10px;
+/* Sections */
+section{
+padding:100px 20px;
+text-align:center;
+}
+section h2{
+font-size:2.5em;
+margin-bottom:40px;
+background:linear-gradient(90deg,#00f2ff,#ff00ea,#fffc00);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-.chatbox input{
-width:70%;
-padding:8px;
-border:none;
-border-radius:5px;
+/* Footer */
+footer{
+padding:40px 20px;
+text-align:center;
+color:#ccc;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
 }
-
-.chatbox button{
-padding:8px 10px;
-border:none;
-background:#00eaff;
-cursor:pointer;
-border-radius:5px;
-}
-
 </style>
 </head>
-
 <body>
 
+<!-- Navbar -->
 <nav>
-<div class="logo">MS</div>
-<i class="fa fa-ellipsis-v"></i>
+<div class="logo">
+<img src="logo.png" alt="Logo"> <!-- Add your logo image here -->
+MS
+</div>
+<div class="menu">
+<a href="#about" style="margin-right:15px;color:white;">About</a>
+<a href="#social" style="color:white;">Connect</a>
+</div>
 </nav>
 
+<!-- Hero Section -->
 <section class="hero">
-
-<img src="cover.jpg" class="profile">
-
-<h1>Md Shamim</h1>
-
-<p>AI Developer • Web Creator • Digital Innovator</p>
-
-<button class="btn">Follow Me</button>
-
-<div class="social">
-<a href="https://wa.me/917557096331"><i class="fab fa-whatsapp"></i></a>
-<a href="https://www.instagram.com/itz_s_h_a_m_i_m?igsh=MXB1ZGw5dXd2d2F4bA=="><i class="fab fa-instagram"></i></a>
-<a href="https://www.facebook.com/share/18LAQWm4sz/"><i class="fab fa-facebook"></i></a>
+<img src="shamim.jpg" alt="MS Profile" class="profile">
+<h1>Welcome to My AI Social Profile</h1>
+<p>Explore AI-powered features, animated UI, and interactive profile experience.</p>
+<div>
+<button class="btn" onclick="scrollToSection('about')">About Me</button>
+<button class="btn" onclick="scrollToSection('social')">Connect</button>
 </div>
-
+<div class="social" id="social">
+<a href="https://wa.me/917557096331" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+</div>
 </section>
 
-<!-- AI Chat -->
+<!-- About Me Section -->
+<section id="about">
+<h2>About Me</h2>
+<p>Hello 👋, I am MS, passionate about AI and modern web design. I create interactive AI profiles, advanced animations, and social experiences that engage users.</p>
+</section>
 
-<div class="chatbox" id="chatbox">
-
-<div class="messages" id="messages"></div>
-
-<input id="userInput" placeholder="Ask AI...">
-<button onclick="sendMessage()">Send</button>
-
+<!-- Floating AI Chat Button -->
+<div class="chat-btn" title="Chat with AI" onclick="openAIChat()">
+<i class="fas fa-robot"></i>
 </div>
 
-<div class="chat-btn" onclick="toggleChat()">
-<i class="fa fa-robot"></i>
-</div>
+<!-- Footer -->
+<footer>
+&copy; 2026 MS. All Rights Reserved.
+</footer>
 
 <script>
-
-function toggleChat(){
-let chat=document.getElementById("chatbox");
-chat.style.display = chat.style.display === "block" ? "none" : "block";
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-function sendMessage(){
-
-let input=document.getElementById("userInput");
-let msg=input.value;
-
-if(msg==="") return;
-
-let box=document.getElementById("messages");
-
-box.innerHTML+=`<p><b>You:</b> ${msg}</p>`;
-
-setTimeout(()=>{
-box.innerHTML+=`<p><b>AI:</b> Hello 👋 How can I help you?</p>`;
-box.scrollTop=box.scrollHeight;
-},500);
-
-input.value="";
-
+function openAIChat(){
+alert("Hello! This is your AI chat assistant placeholder. Integrate ChatGPT API here.");
 }
-
 </script>
 
 </body>
