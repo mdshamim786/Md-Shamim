@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Shamim | AI Social Profile</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+overflow-x:hidden;
+}
+
+/* Navbar */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+z-index:999;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+background:linear-gradient(45deg,#00f2ff,#ff00ea);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.menu i{
+font-size:22px;
+cursor:pointer;
+}
+
+/* Hero */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.profile{
+width:150px;
+height:150px;
+border-radius:50%;
+border:4px solid #00eaff;
+box-shadow:0 0 30px #00eaff;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.hero p{
+opacity:0.8;
+margin-bottom:20px;
+}
+
+.btn{
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#00f2ff,#ff00ea);
+color:white;
+cursor:pointer;
+font-size:16px;
+}
+
+/* Social icons */
+
+.social{
+margin-top:20px;
+}
+
+.social a{
+margin:0 10px;
+font-size:24px;
+color:white;
+transition:0.3s;
+}
+
+.social a:hover{
+color:#00f2ff;
+}
+
+/* About */
+
+.about{
+padding:80px 20px;
+text-align:center;
+}
+
+.about h2{
+font-size:32px;
+margin-bottom:20px;
+}
+
+/* AI Chat */
+
+.chat{
+padding:80px 20px;
+text-align:center;
+}
+
+.chatbox{
+max-width:600px;
+margin:auto;
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:15px;
+backdrop-filter:blur(10px);
+}
+
+.chatbox input{
+width:80%;
+padding:10px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+}
+
+.chatbox button{
+padding:10px 20px;
+border:none;
+border-radius:10px;
+background:#00eaff;
+color:black;
+cursor:pointer;
+}
+
+.messages{
+height:200px;
+overflow:auto;
+margin-bottom:10px;
+text-align:left;
+}
+
+/* Footer */
+
+footer{
+text-align:center;
+padding:20px;
+opacity:0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">Shamim AI</div>
+
+<div class="menu">
+<i class="fa fa-ellipsis-v"></i>
+</div>
+
+</nav>
+
+
+<section class="hero">
+
+<img src="shamim.jpg" class="profile">
+
+<h1>Md Shamim</h1>
+
+<p>AI Developer • Web Creator • Digital Innovator</p>
+
+<button class="btn">Follow Me</button>
+
+<div class="social">
+
+<a href="https://wa.me/917557096331"><i class="fab fa-whatsapp"></i></a>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+<a href="#"><i class="fab fa-facebook"></i></a>
+
+</div>
+
+</section>
+
+
+<section class="about">
+
+<h2>About Me</h2>
+
+<p>
+Hello 👋 Welcome to my personal AI powered website.
+I create modern digital projects, IPTV systems,
+AI tools and advanced web platforms.
+</p>
+
+</section>
+
+
+<section class="chat">
+
+<h2>AI Assistant</h2>
+
+<div class="chatbox">
+
+<div class="messages" id="messages"></div>
+
+<input id="userInput" placeholder="Ask something...">
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Md Shamim | Powered by AI
+
+</footer>
+
+<script>
+
+function sendMessage(){
+
+let input=document.getElementById("userInput");
+let msg=input.value;
+
+if(msg=="") return;
+
+let box=document.getElementById("messages");
+
+box.innerHTML+=`<p><b>You:</b> ${msg}</p>`;
+
+setTimeout(()=>{
+box.innerHTML+=`<p><b>AI:</b> I am your personal assistant 🤖</p>`;
+box.scrollTop=box.scrollHeight;
+},500);
+
+input.value="";
+
+}
+
+</script>
+
+</body>
+</html>
